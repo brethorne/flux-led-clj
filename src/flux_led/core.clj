@@ -28,7 +28,8 @@
              :yellow [255 255 0]
              :purple [128 0 128]
              :blue [0 0 205]
-             :indigo [75 0 130]})
+             :indigo [75 0 130]
+             :orange [255 165 0]})
 
 (def default-port 5577)
 
@@ -272,3 +273,11 @@
          (map (fn [offsets]
                 (mapv #(uaget resp %) offsets)))
          (map bytes->timer))))
+
+(defn flash [ip len]
+  (let [rgb-fn (fn [] (rgb ip (:yellow colors)))
+        off-fn (fn [] (rgb ip [0 0 0]))
+        sleep-fn (fn [] (Thread/sleep 1000))]
+    (map (fn [f]
+           (f))
+         (interpose sleep-fn (flatten (take len (repeat [rgb-fn off-fn])))))))
