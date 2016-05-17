@@ -23,13 +23,16 @@
 ;;    be passed a vector of byte values
 ;; 7. Use the gensym shorthand for the let bindings in my macro
 
-(def colors {:red [255 0 0]
-             :green [0 128 0]
+(def colors {:red    [255 0 0]
+             :green  [0 128 0]
              :yellow [255 255 0]
              :purple [128 0 128]
-             :blue [0 0 205]
+             :blue   [0 0 205]
              :indigo [75 0 130]
-             :orange [255 165 0]})
+             :orange [255 165 0]
+             :brown  [165 42 42]
+             :pink [255 192 203]
+             :white [255 255 255]})
 
 (def default-port 5577)
 
@@ -275,9 +278,9 @@
          (map bytes->timer))))
 
 (defn flash [ip len]
-  (let [rgb-fn (fn [] (rgb ip (:yellow colors)))
+  (let [rgb-fn (fn [] (rgb ip (:blue colors)))
         off-fn (fn [] (rgb ip [0 0 0]))
         sleep-fn (fn [] (Thread/sleep 1000))]
     (map (fn [f]
            (f))
-         (interpose sleep-fn (flatten (take len (repeat [rgb-fn off-fn])))))))
+         (interpose sleep-fn (flatten (repeat [rgb-fn off-fn]))))))

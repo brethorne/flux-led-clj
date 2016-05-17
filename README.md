@@ -1,36 +1,5 @@
-# flux-led
+A friend of mine bought a Flux Wifi LED Light Bulb then I discovered [this guy's work](https://github.com/beville/flux_led) and of course, I had to try it out in a Clojure REPL.
 
-FIXME: description
+[Quick Demo (Youtube)](https://www.youtube.com/watch?v=fLkaAoXwgLc)
 
-## Installation
-
-Download from http://example.com/FIXME.
-
-## Usage
-
-FIXME: explanation
-
-    $ java -jar flux-led-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2016 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+The code is almost entirely based on beville's work so all credit goes to him or her.
