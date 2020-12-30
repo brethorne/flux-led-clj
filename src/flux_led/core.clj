@@ -173,7 +173,7 @@
    (rgb ip port [r g b] true))
   ([ip port [r g b] persist]
    (let [pb (if persist 0x31 0x41)]
-     (send-cmd ip port [pb r g b 0x00 0xF0 0x0F]))))
+     (send-cmd ip port [pb r g b 0x00 0x00 0xf0 0x0F])))))))
 
 (defn warm-white
   ([ip percent] (warm-white ip default-port percent true))
